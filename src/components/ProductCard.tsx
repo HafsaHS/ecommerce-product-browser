@@ -7,28 +7,39 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
-export function ProductCard() {
+interface ProductCardProps {
+  title: string;
+  price: number;
+  description: string;
+  images: string[];
+  category: string;
+}
+
+export function ProductCard({
+  title,
+  price,
+  description,
+  images,
+  category,
+}: ProductCardProps) {
   return (
-    <div className="flex flex-col">
+    <div>
       <Card className="w-[300px]">
         <CardHeader className="">
-          <img src="https://via.placeholder.com/150" alt="Product Image" />
-          <CardTitle>Handbag</CardTitle>
-          <CardDescription>The handbag is very trendy</CardDescription>
+          <img
+            src={images[0]}
+            alt={title}
+            className="w-full h-48 object-cover"
+          />
+          <CardTitle>{title}</CardTitle>
+          <CardDescription className="overflow-hidden">
+            {description}
+          </CardDescription>
         </CardHeader>
         <CardContent>
-          <span className="text-lg">Product Name</span>
-          <div>Product details</div>
+          <span className="text-lg">${price}</span>
+          <div>Category: {category}</div>
         </CardContent>
         <CardFooter className="flex justify-between">
           <Button variant="outline">View More</Button>

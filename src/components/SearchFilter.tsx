@@ -12,7 +12,7 @@ export default function SearchFilter() {
     setQuery(event.target.value);
   };
   return (
-    <div className="flex justify-center w-full ">
+    <div className="flex justify-center w-full mb-4 ">
       <Input
         className="w-48 h-10"
         type="text"
