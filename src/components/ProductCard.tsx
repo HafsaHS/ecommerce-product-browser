@@ -7,8 +7,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 interface ProductCardProps {
+  id: number;
   title: string;
   price: number;
   description: string;
@@ -17,6 +19,7 @@ interface ProductCardProps {
 }
 
 export function ProductCard({
+  id,
   title,
   price,
   description,
@@ -42,7 +45,9 @@ export function ProductCard({
           <div>Category: {category}</div>
         </CardContent>
         <CardFooter className="flex justify-between">
-          <Button variant="outline">View More</Button>
+          <Link to={`/product/${id}`}>
+            <Button variant="outline">View More</Button>
+          </Link>
         </CardFooter>
       </Card>
     </div>

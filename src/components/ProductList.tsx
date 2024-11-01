@@ -28,6 +28,7 @@ function ProductList() {
       {products.map((product) => {
         return (
           <ProductCard
+            id={product.id}
             key={product.id}
             title={product.title}
             price={product.price}
