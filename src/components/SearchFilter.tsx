@@ -1,8 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Product } from "@/types/product";
+import axios from "axios";
 import { useState } from "react";
 
-export default function SearchFilter() {
+interface SearchFilterProps {
+  setProducts: (products: Product[]) => void;
+}
+export default function SearchFilter({ setProducts }: SearchFilterProps) {
   const [query, setQuery] = useState("");
 
   const handleSearch = () => {
@@ -11,6 +16,15 @@ export default function SearchFilter() {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
   };
+
+  const fetchFilteredProducts = async () => {
+    const res = await axios.get(
+      "https://dummyjson.com/products/search?q=" + query
+    );
+    // console.log(res.data.products);
+    setProducts(res.data.products);
+  };
+
   return (
     <div className="flex justify-center w-full mb-4 ">
       <Input
@@ -20,7 +34,7 @@ export default function SearchFilter() {
         value={query}
         onChange={handleChange}
       />
-      <Button type="submit" onClick={handleSearch}>
+      <Button type="submit" onClick={fetchFilteredProducts}>
         Search
       </Button>
     </div>

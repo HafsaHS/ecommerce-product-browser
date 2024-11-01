@@ -1,28 +1,11 @@
-import { useEffect, useState } from "react";
 import { ProductCard } from "./ProductCard";
-import axios from "axios";
+import { Product } from "@/types/product";
 
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  images: string[];
+interface ProductListProps {
+  products: Product[];
 }
 
-function ProductList() {
-  const [products, setProducts] = useState<Product[]>([]);
-
-  const fetchProducts = async () => {
-    const res = await axios.get("https://dummyjson.com/products");
-    // console.log(res.data.products);
-    setProducts(res.data.products);
-  };
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+function ProductList({ products }: ProductListProps) {
   return (
     <div className="grid grid-cols-4 ">
       {products.map((product) => {

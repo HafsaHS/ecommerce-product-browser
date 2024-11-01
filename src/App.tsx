@@ -1,5 +1,4 @@
-import ProductList from "./components/ProductList";
-import SearchFilter from "./components/SearchFilter";
+import HomePage from "./pages/HomePage";
 
 export default function App() {
   return (
@@ -8,8 +7,7 @@ export default function App() {
         Ecommerce Product Borwser
       </div>
       <div className="my-4 mx-4">
-        <SearchFilter />
-        <ProductList />
+        <HomePage />
       </div>
     </>
   );
