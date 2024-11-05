@@ -7,14 +7,13 @@ import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
 import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
+import { ChevronDownIcon } from "lucide-react";
 
 interface SearchFilterProps {
   setProducts: (products: Product[]) => void;
@@ -25,6 +24,7 @@ interface Category {
   name: string;
   slug: string;
   url: string;
+  icon: React.ReactNode;
 }
 
 type Checked = DropdownMenuCheckboxItemProps["checked"];
@@ -58,11 +58,13 @@ function DropdownMenuCustom({
         <DropdownMenuTrigger asChild>
           <Button variant="outline">
             {selectedCategory ? selectedCategory.name : "Category"}
+            <ChevronDownIcon className="w-5 h-5" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-56 bg-white">
+        <DropdownMenuContent className="w-56 h-96 overflow-auto bg-white border border-gray-200">
           {categories.map((category) => (
             <DropdownMenuCheckboxItem
+              className="flex items-center justify-between px-4 py-2 cursor-pointer"
               key={category.slug}
               checked={categories.includes(category.name as any)}
               onCheckedChange={() => {
@@ -109,7 +111,7 @@ export default function SearchFilter({
           setTotalProducts={setTotalProducts}
         />
         <Input
-          className="w-48 h-10"
+          className="w-96 h-10 ml-10"
           type="text"
           placeholder="Search here"
           value={query}

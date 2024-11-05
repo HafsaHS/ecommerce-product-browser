@@ -12,6 +12,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { ChevronDownIcon } from "lucide-react";
 
 export default function HomePage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -40,7 +41,7 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="flex justify-center text-3xl py-4">
+      <div className="flex justify-center text-3xl font-bold py-4">
         Ecommerce Product Browser
       </div>
       <div className="my-4 mx-4">

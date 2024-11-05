@@ -28,7 +28,7 @@ export function ProductCard({
 }: ProductCardProps) {
   return (
     <div>
-      <Card className="w-[300px]">
+      <Card className="w-[300px] h-[250px]">
         <CardHeader className="">
           <img
             src={images[0]}
@@ -36,7 +36,7 @@ export function ProductCard({
             className="w-full h-48 object-cover"
           />
           <CardTitle>{title}</CardTitle>
-          <CardDescription className="overflow-hidden">
+          <CardDescription className="overflow-y-hidden">
             {description}
           </CardDescription>
         </CardHeader>
