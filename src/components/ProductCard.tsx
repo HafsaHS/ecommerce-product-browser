@@ -1,9 +1,8 @@
-import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -27,29 +26,26 @@ export function ProductCard({
   category,
 }: ProductCardProps) {
   return (
-    <div>
-      <Card className="w-[300px] h-[250px]">
-        <CardHeader className="">
+    <Link to={`/product/${id}`}>
+      <Card className="w-[300px] my-1">
+        <CardHeader>
           <img
             src={images[0]}
             alt={title}
             className="w-full h-48 object-cover"
           />
-          <CardTitle>{title}</CardTitle>
-          <CardDescription className="overflow-y-hidden">
+          <CardTitle className="h-16 py-2 leading-6">{title}</CardTitle>
+          <CardDescription className="pt-2 line-clamp-3">
             {description}
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <span className="text-lg">${price}</span>
-          <div>Category: {category}</div>
+          <span className="text-xl font-medium">${price}</span>
+          <div>
+            <Badge className="uppercase"> {category}</Badge>
+          </div>
         </CardContent>
-        <CardFooter className="flex justify-between">
-          <Link to={`/product/${id}`}>
-            <Button variant="outline">View More</Button>
-          </Link>
-        </CardFooter>
       </Card>
-    </div>
+    </Link>
   );
 }

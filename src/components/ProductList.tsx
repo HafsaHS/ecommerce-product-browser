@@ -7,7 +7,7 @@ interface ProductListProps {
 
 function ProductList({ products }: ProductListProps) {
   return (
-    <div className="grid grid-cols-4 ">
+    <div className="grid grid-cols-4 place-items-center">
       {products.map((product) => {
         return (
           <ProductCard

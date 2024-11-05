@@ -11,8 +11,6 @@ import {
 } from "@radix-ui/react-dropdown-menu";
 import axios from "axios";
 import { useState, useEffect } from "react";
-
-import { DropdownMenuCheckboxItemProps } from "@radix-ui/react-dropdown-menu";
 import { ChevronDownIcon } from "lucide-react";
 
 interface SearchFilterProps {
@@ -26,8 +24,6 @@ interface Category {
   url: string;
   icon: React.ReactNode;
 }
-
-type Checked = DropdownMenuCheckboxItemProps["checked"];
 
 function DropdownMenuCustom({
   setProducts,
@@ -87,9 +83,6 @@ export default function SearchFilter({
 }: SearchFilterProps) {
   const [query, setQuery] = useState("");
 
-  const handleSearch = () => {
-    console.log("Search query: ", query);
-  };
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
   };

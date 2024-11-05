@@ -1,18 +1,16 @@
 import ProductList from "@/components/ProductList";
 import SearchFilter from "@/components/SearchFilter";
-import { Product } from "@/types/product";
-import axios from "axios";
-import { useState, useEffect } from "react";
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { ChevronDownIcon } from "lucide-react";
+import { Product } from "@/types/product";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 export default function HomePage() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -50,7 +48,7 @@ export default function HomePage() {
           setTotalProducts={setTotalProducts}
         />
         <ProductList products={products} />
-        <Pagination>
+        <Pagination className="py-10">
           <PaginationContent>
             <PaginationItem>
               {currentPage > 1 && (
