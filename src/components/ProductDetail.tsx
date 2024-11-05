@@ -39,7 +39,7 @@ export default function ProductDetail() {
   }
   return (
     <div className="max-w-7xl mx-auto p-6 grid lg:grid-cols-2 gap-8">
-      <div className="space-y-4">
+      <div className="space-y-5">
         <Button variant="outline" size="icon" onClick={() => navigate("/")}>
           <ChevronLeft className="h-4 w-4" />
         </Button>
